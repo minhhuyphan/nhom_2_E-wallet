@@ -10,8 +10,8 @@
   border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: 15px;
   margin-bottom: 25px;
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .filter-group {
@@ -83,8 +83,8 @@
   border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: 15px;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .history-stat-card:hover {

@@ -135,7 +135,6 @@ function applyFontSize(size) {
   }
 
   localStorage.setItem("fontSize", size);
-  console.log(`Font size changed to: ${size}`);
 }
 
 // Font Size Selection

@@ -243,7 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // TODO: Implement actual password change logic
-        console.log("Changing password...");
 
         modal.remove();
         showToast("Đổi mật khẩu thành công!", "success");

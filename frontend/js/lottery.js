@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Check if MetaMask is installed
   if (typeof window.ethereum !== "undefined") {
     web3 = new Web3(window.ethereum);
-    console.log("MetaMask detected!");
   } else {
     showToast("Please install MetaMask to use this dApp", "error");
   }

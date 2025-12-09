@@ -33,7 +33,6 @@ async function connectMetaMask() {
 
     // Get network
     const chainId = await window.ethereum.request({ method: "eth_chainId" });
-    console.log("Connected to network:", chainId);
 
     // Success
     metamaskBtn.classList.remove("loading");
