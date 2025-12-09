@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ether Lottery - Admin Cài Đặt</title>
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/icons.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/settings.css" />
+    <script src="../js/theme.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Sidebar Navigation -->
+      <aside class="admin-sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <rect width="24" height="24" rx="6" fill="#A855F7" />
+              <path d="M12 4L7 12L12 15L17 12L12 4Z" fill="#FFD700" />
+              <path d="M7 13L12 20L17 13L12 16L7 13Z" fill="#FCD34D" />
+            </svg>
+            <span>Ether Lottery</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="admin.html" class="sidebar-item">
+            <img
+              src="../icon/tro_choi.png"
+              alt="Lottery"
+              class="sidebar-icon"
+            />
+            <span>Quay Số Trúng Thưởng</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img
+              src="../icon/lich_su_tham_gia.png"
+              alt="History"
+              class="sidebar-icon"
+            />
+            <span>Lịch Sử</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="../icon/ho_so.png" alt="Players" class="sidebar-icon" />
+            <span>Người Chơi</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img
+              src="../icon/tui_tien.png"
+              alt="Finance"
+              class="sidebar-icon"
+            />
+            <span>Tài Chính</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="admin-profile">
+            <div class="admin-avatar">
+              <img src="../icon/tai_khoan.png" alt="Admin" />
+            </div>
+            <div class="admin-info">
+              <div class="admin-name">admin</div>
+              <div class="admin-role">Administrator</div>
+            </div>
+          </div>
+          <a href="index.html" class="btn-logout">
+            <span>←</span> Thoát Admin
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="admin-main">
+        <!-- Top Bar -->
+        <header class="admin-header">
+          <div class="header-left">
+            <h1>Cài Đặt</h1>
+            <div class="network-status">
+              <span class="status-dot"></span>
+              <span id="network-name">Sepolia Testnet</span>
+            </div>
+          </div>
+          <div class="header-right">
+            <a
+              href="admin-notifications.html"
+              class="icon-btn"
+              title="Thông báo"
+            >
+              <img
+                src="../icon/thong_bao.png"
+                alt="Notifications"
+                class="nav-icon-img"
+              />
+              <span class="notification-badge">3</span>
+            </a>
+            <a
+              href="admin-settings.html"
+              class="icon-btn active"
+              title="Cài đặt"
+            >
+              <img
+                src="../icon/cai_dat.png"
+                alt="Settings"
+                class="nav-icon-img"
+              />
+            </a>
+          </div>
+        </header>
+
+        <!-- Settings Content -->
+        <div class="admin-content">
+          <div class="settings-container">
+            <!-- Display Settings -->
+            <div class="settings-section">
+              <div class="settings-header">
+                <img
+                  src="../icon/giao_dien.png"
+                  alt="Display"
+                  class="section-icon"
+                />
+                <h2>Giao Diện</h2>
+              </div>
+              <div class="settings-group">
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Kích thước chữ</h3>
+                    <p>Điều chỉnh độ lớn của văn bản</p>
+                  </div>
+                  <div class="setting-control">
+                    <div class="font-size-selector">
+                      <button class="font-btn" data-size="small">
+                        <span>A</span>
+                        <span class="font-label">Nhỏ</span>
+                      </button>
+                      <button class="font-btn active" data-size="medium">
+                        <span>A</span>
+                        <span class="font-label">Vừa</span>
+                      </button>
+                      <button class="font-btn" data-size="large">
+                        <span>A</span>
+                        <span class="font-label">Lớn</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Hiệu ứng chuyển động</h3>
+                    <p>Bật/tắt animation và hiệu ứng</p>
+                  </div>
+                  <div class="setting-control">
+                    <label class="switch">
+                      <input type="checkbox" id="animations-toggle" title="Bật/tắt animation và hiệu ứng" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Admin-specific Settings -->
+            <div class="settings-section">
+              <div class="settings-header">
+                <img
+                  src="../icon/icon_cai_dat.png"
+                  alt="Admin"
+                  class="section-icon"
+                />
+                <h2>Cấu Hình Quản Trị</h2>
+              </div>
+              <div class="settings-group">
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Tự động quay số</h3>
+                    <p>Tự động thực hiện quay số theo lịch định sẵn</p>
+                  </div>
+                  <div class="setting-control">
+                    <label class="switch">
+                      <input type="checkbox" id="auto-draw-toggle" title="Tự động thực hiện quay số theo lịch định sẵn" />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Thời gian quay số tự động</h3>
+                    <p>Cài đặt thời gian cho quay số tự động</p>
+                  </div>
+                  <div class="setting-control">
+                    <input
+                      type="time"
+                      id="auto-draw-time"
+                      value="20:00"
+                      class="time-input"
+                      title="Cài đặt thời gian cho quay số tự động"
+                    />
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Số lượng người chơi tối thiểu</h3>
+                    <p>Số người chơi tối thiểu để bắt đầu quay số</p>
+                  </div>
+                  <div class="setting-control">
+                    <input
+                      type="number"
+                      id="min-players"
+                      value="3"
+                      min="1"
+                      max="100"
+                      class="number-input"
+                      title="Số người chơi tối thiểu để bắt đầu quay số"
+                    />
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Phí quản lý (%)</h3>
+                    <p>Tỷ lệ phần trăm phí quản lý từ tổng quỹ</p>
+                  </div>
+                  <div class="setting-control">
+                    <input
+                      type="number"
+                      id="admin-fee"
+                      value="5"
+                      min="0"
+                      max="20"
+                      step="0.5"
+                      class="number-input"
+                      title="Tỷ lệ phần trăm phí quản lý từ tổng quỹ"
+                    />
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Thông báo email khi có người thắng</h3>
+                    <p>Gửi email thông báo khi có người trúng giải</p>
+                  </div>
+                  <div class="setting-control">
+                    <label class="switch">
+                      <input type="checkbox" id="email-notify-toggle" title="Gửi email thông báo khi có người trúng giải" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lottery Configuration -->
+            <div class="settings-section">
+              <div class="settings-header">
+                <img
+                  src="../icon/tro_choi.png"
+                  alt="Lottery"
+                  class="section-icon"
+                />
+                <h2>Cấu Hình Xổ Số</h2>
+              </div>
+              <div class="settings-group">
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Khoảng số</h3>
+                    <p>Phạm vi số cho các số trúng thưởng (00-99)</p>
+                  </div>
+                  <div class="setting-control">
+                    <div class="range-inputs">
+                      <input
+                        type="number"
+                        id="num-min"
+                        value="0"
+                        min="0"
+                        max="98"
+                        class="number-input small"
+                        title="Số nhỏ nhất"
+                        disabled
+                      />
+                      <span>đến</span>
+                      <input
+                        type="number"
+                        id="num-max"
+                        value="99"
+                        min="1"
+                        max="99"
+                        class="number-input small"
+                        title="Số lớn nhất"
+                        disabled
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Số lượng số trúng thưởng</h3>
+                    <p>Số lượng số được quay mỗi phiên</p>
+                  </div>
+                  <div class="setting-control">
+                    <input
+                      type="number"
+                      id="winning-numbers-count"
+                      value="6"
+                      min="3"
+                      max="10"
+                      class="number-input"
+                      title="Số lượng số được quay mỗi phiên"
+                    />
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Giá vé (ETH)</h3>
+                    <p>Giá mỗi vé tham gia</p>
+                  </div>
+                  <div class="setting-control">
+                    <input
+                      type="number"
+                      id="ticket-price"
+                      value="0.01"
+                      min="0.001"
+                      max="1"
+                      step="0.001"
+                      class="number-input"
+                      title="Giá mỗi vé tham gia"
+                    />
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Thời gian quay số (giây)</h3>
+                    <p>Thời gian hiệu ứng quay số trước khi hiển thị kết quả</p>
+                  </div>
+                  <div class="setting-control">
+                    <input
+                      type="number"
+                      id="draw-duration"
+                      value="2"
+                      min="1"
+                      max="10"
+                      class="number-input"
+                      title="Thời gian hiệu ứng quay số trước khi hiển thị kết quả"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Notifications Settings -->
+            <div class="settings-section">
+              <div class="settings-header">
+                <img
+                  src="../icon/chuong.png"
+                  alt="Notifications"
+                  class="section-icon"
+                />
+                <h2>Thông Báo</h2>
+              </div>
+              <div class="settings-group">
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Thông báo hệ thống</h3>
+                    <p>Nhận thông báo về cập nhật và bảo trì</p>
+                  </div>
+                  <div class="setting-control">
+                    <label class="switch">
+                      <input type="checkbox" id="system-notif-toggle" title="Nhận thông báo về cập nhật và bảo trì" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Thông báo xổ số</h3>
+                    <p>Nhận thông báo về kết quả quay số</p>
+                  </div>
+                  <div class="setting-control">
+                    <label class="switch">
+                      <input
+                        type="checkbox"
+                        id="lottery-notif-toggle"
+                        title="Nhận thông báo về kết quả quay số"
+                        checked
+                      />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Thông báo người chơi</h3>
+                    <p>Nhận thông báo về hoạt động người chơi</p>
+                  </div>
+                  <div class="setting-control">
+                    <label class="switch">
+                      <input type="checkbox" id="player-notif-toggle" title="Nhận thông báo về hoạt động người chơi" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Âm thanh thông báo</h3>
+                    <p>Phát âm thanh khi có thông báo mới</p>
+                  </div>
+                  <div class="setting-control">
+                    <label class="switch">
+                      <input type="checkbox" id="sound-toggle" title="Phát âm thanh khi có thông báo mới" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Security Settings -->
+            <div class="settings-section">
+              <div class="settings-header">
+                <img
+                  src="../icon/canh_bao.png"
+                  alt="Security"
+                  class="section-icon"
+                />
+                <h2>Bảo Mật</h2>
+              </div>
+              <div class="settings-group">
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Xác thực hai yếu tố (2FA)</h3>
+                    <p>Thêm lớp bảo mật với xác thực hai yếu tố</p>
+                  </div>
+                  <div class="setting-control">
+                    <label class="switch">
+                      <input type="checkbox" id="2fa-toggle" title="Thêm lớp bảo mật với xác thực hai yếu tố" />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Thời gian tự động đăng xuất (phút)</h3>
+                    <p>
+                      Tự động đăng xuất sau khoảng thời gian không hoạt động
+                    </p>
+                  </div>
+                  <div class="setting-control">
+                    <input
+                      type="number"
+                      id="auto-logout"
+                      value="30"
+                      min="5"
+                      max="120"
+                      class="number-input"
+                      title="Tự động đăng xuất sau khoảng thời gian không hoạt động"
+                    />
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Ghi log hoạt động</h3>
+                    <p>Lưu lại tất cả hoạt động quản trị</p>
+                  </div>
+                  <div class="setting-control">
+                    <label class="switch">
+                      <input type="checkbox" id="activity-log-toggle" title="Lưu lại tất cả hoạt động quản trị" checked />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-info">
+                    <h3>Thay đổi mật khẩu quản trị</h3>
+                    <p>Cập nhật mật khẩu đăng nhập</p>
+                  </div>
+                  <div class="setting-control">
+                    <button class="btn-primary" id="change-password-btn">
+                      Đổi mật khẩu
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="settings-actions">
+              <button class="btn-secondary" id="reset-settings">
+                Đặt lại mặc định
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/admin-settings.js"></script>
+  </body>
+</html>

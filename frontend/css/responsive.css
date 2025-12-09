@@ -1,0 +1,330 @@
+/* Responsive Styles - Mobile and Tablet Breakpoints */
+
+/* Tablet Breakpoint */
+@media (max-width: 1200px) {
+  .lottery-container {
+    padding: 24px 16px;
+  }
+
+  .prize-pool-card {
+    padding: 40px 24px;
+  }
+
+  .prize-trophy {
+    width: 60px;
+    right: 30px;
+  }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+  /* Navigation */
+  .top-nav {
+    padding: 12px 16px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .network-status {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-icon-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Container */
+  .lottery-container {
+    padding: 20px 12px;
+  }
+
+  /* Hero Section */
+  .prize-pool-card {
+    padding: 32px 20px;
+  }
+
+  .prize-title {
+    font-size: 18px;
+  }
+
+  .prize-title .inline-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .eth-amount {
+    font-size: 48px;
+  }
+
+  .eth-label {
+    font-size: 24px;
+  }
+
+  .prize-usd {
+    font-size: 18px;
+  }
+
+  .prize-trophy {
+    width: 50px;
+    right: 20px;
+    bottom: 15px;
+  }
+
+  /* Game Grid */
+  .game-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .game-card {
+    padding: 24px 20px;
+  }
+
+  .game-card h2 {
+    font-size: 18px;
+  }
+
+  .game-card h2 .inline-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Countdown Timer */
+  .countdown-section {
+    padding: 16px;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .time-box {
+    padding: 10px 6px;
+  }
+
+  .time-value {
+    font-size: 18px;
+  }
+
+  .time-label {
+    font-size: 10px;
+  }
+
+  /* Buttons */
+  .btn-enter-game {
+    font-size: 16px;
+    padding: 14px 24px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  /* Icons */
+  .inline-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Profile Card */
+  .profile-card {
+    padding: 24px 20px;
+  }
+
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+  }
+
+  .profile-address {
+    font-size: 14px;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .stat-value {
+    font-size: 28px;
+  }
+
+  /* Info Grid */
+  .info-grid {
+    padding: 24px 20px;
+  }
+
+  .info-grid h2 {
+    font-size: 18px;
+  }
+
+  .info-item {
+    padding: 12px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .info-item-value {
+    text-align: left;
+  }
+
+  /* Form Components */
+  .form-card {
+    padding: 24px 20px;
+  }
+
+  .form-card h3 {
+    font-size: 18px;
+  }
+
+  /* Players List */
+  .players-container {
+    max-height: 250px;
+  }
+
+  .player-item {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .player-address {
+    font-size: 12px;
+  }
+
+  /* Modal */
+  .modal {
+    width: 95%;
+    padding: 24px 20px;
+    max-width: none;
+  }
+
+  .modal h3 {
+    font-size: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .btn-modal {
+    width: 100%;
+  }
+
+  /* Toast */
+  .toast-container {
+    right: 12px;
+    left: 12px;
+    top: 80px;
+  }
+
+  .toast {
+    min-width: auto;
+    width: 100%;
+  }
+
+  /* Empty State */
+  .empty-state {
+    padding: 48px 16px;
+  }
+
+  .empty-state-icon {
+    font-size: 48px;
+  }
+}
+
+/* Small Mobile Breakpoint */
+@media (max-width: 480px) {
+  .eth-amount {
+    font-size: 36px;
+  }
+
+  .eth-label {
+    font-size: 18px;
+  }
+
+  .prize-usd {
+    font-size: 16px;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .profile-avatar {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .prize-pool-card {
+    padding: 24px 20px;
+  }
+
+  .eth-amount {
+    font-size: 40px;
+  }
+
+  .game-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .top-nav,
+  .btn-enter-game,
+  .btn-refresh,
+  .toast-container,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+
+  .prize-pool-card,
+  .game-card,
+  .profile-card,
+  .info-grid,
+  .form-card {
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+}

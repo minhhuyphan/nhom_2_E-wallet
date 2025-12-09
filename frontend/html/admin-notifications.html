@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ether Lottery - Admin Thông Báo</title>
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/icons.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/notifications.css" />
+    <script src="../js/theme.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Sidebar Navigation -->
+      <aside class="admin-sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <rect width="24" height="24" rx="6" fill="#A855F7" />
+              <path d="M12 4L7 12L12 15L17 12L12 4Z" fill="#FFD700" />
+              <path d="M7 13L12 20L17 13L12 16L7 13Z" fill="#FCD34D" />
+            </svg>
+            <span>Ether Lottery</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="admin.html" class="sidebar-item">
+            <img
+              src="../icon/tro_choi.png"
+              alt="Lottery"
+              class="sidebar-icon"
+            />
+            <span>Quay Số Trúng Thưởng</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img
+              src="../icon/lich_su_tham_gia.png"
+              alt="History"
+              class="sidebar-icon"
+            />
+            <span>Lịch Sử</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="../icon/ho_so.png" alt="Players" class="sidebar-icon" />
+            <span>Người Chơi</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img
+              src="../icon/tui_tien.png"
+              alt="Finance"
+              class="sidebar-icon"
+            />
+            <span>Tài Chính</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="admin-profile">
+            <div class="admin-avatar">
+              <img src="../icon/tai_khoan.png" alt="Admin" />
+            </div>
+            <div class="admin-info">
+              <div class="admin-name">admin</div>
+              <div class="admin-role">Administrator</div>
+            </div>
+          </div>
+          <a href="index.html" class="btn-logout">
+            <span>←</span> Thoát Admin
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="admin-main">
+        <!-- Top Bar -->
+        <header class="admin-header">
+          <div class="header-left">
+            <h1>Thông Báo</h1>
+            <div class="network-status">
+              <span class="status-dot"></span>
+              <span id="network-name">Sepolia Testnet</span>
+            </div>
+          </div>
+          <div class="header-right">
+            <a
+              href="admin-notifications.html"
+              class="icon-btn active"
+              title="Thông báo"
+            >
+              <img
+                src="../icon/thong_bao.png"
+                alt="Notifications"
+                class="nav-icon-img"
+              />
+              <span class="notification-badge">3</span>
+            </a>
+            <a href="admin-settings.html" class="icon-btn" title="Cài đặt">
+              <img
+                src="../icon/cai_dat.png"
+                alt="Settings"
+                class="nav-icon-img"
+              />
+            </a>
+          </div>
+        </header>
+
+        <!-- Notifications Content -->
+        <div class="admin-content">
+          <div class="notifications-container">
+            <div class="notifications-header">
+              <div class="filter-tabs">
+                <button class="tab active" data-filter="all">Tất cả</button>
+                <button class="tab" data-filter="system">Hệ thống</button>
+                <button class="tab" data-filter="lottery">Xổ số</button>
+                <button class="tab" data-filter="player">Người chơi</button>
+              </div>
+              <button class="btn-secondary" id="mark-all-read">
+                Đánh dấu đã đọc tất cả
+              </button>
+            </div>
+
+            <div class="notifications-list">
+              <!-- System Notification -->
+              <div class="notification-item unread" data-type="system">
+                <div class="notification-icon system-icon">
+                  <img src="../icon/canh_bao.png" alt="System" />
+                </div>
+                <div class="notification-content">
+                  <div class="notification-header">
+                    <h3>Cập nhật hệ thống</h3>
+                    <span class="notification-time">5 phút trước</span>
+                  </div>
+                  <p class="notification-message">
+                    Hệ thống đã được cập nhật lên phiên bản 2.1.0. Vui lòng kiểm
+                    tra các tính năng mới.
+                  </p>
+                </div>
+                <button class="btn-mark-read" title="Đánh dấu đã đọc">
+                  <img src="../icon/tick.png" alt="Mark read" />
+                </button>
+              </div>
+
+              <!-- Lottery Notification -->
+              <div class="notification-item unread" data-type="lottery">
+                <div class="notification-icon lottery-icon">
+                  <img src="../icon/tro_choi.png" alt="Lottery" />
+                </div>
+                <div class="notification-content">
+                  <div class="notification-header">
+                    <h3>Kết quả quay số mới</h3>
+                    <span class="notification-time">15 phút trước</span>
+                  </div>
+                  <p class="notification-message">
+                    Phiên quay số #152 đã hoàn thành. Các số trúng thưởng: 07,
+                    23, 45, 67, 89, 99
+                  </p>
+                  <div class="notification-action">
+                    <a href="admin.html" class="btn-link">Xem chi tiết →</a>
+                  </div>
+                </div>
+                <button class="btn-mark-read" title="Đánh dấu đã đọc">
+                  <img src="../icon/tick.png" alt="Mark read" />
+                </button>
+              </div>
+
+              <!-- Player Notification -->
+              <div class="notification-item" data-type="player">
+                <div class="notification-icon player-icon">
+                  <img src="../icon/ho_so.png" alt="Player" />
+                </div>
+                <div class="notification-content">
+                  <div class="notification-header">
+                    <h3>Người chơi mới đăng ký</h3>
+                    <span class="notification-time">1 giờ trước</span>
+                  </div>
+                  <p class="notification-message">
+                    Người chơi mới với địa chỉ 0x742d...a4e9 đã tham gia hệ
+                    thống.
+                  </p>
+                </div>
+                <button class="btn-mark-read" title="Đánh dấu đã đọc">
+                  <img src="../icon/tick.png" alt="Mark read" />
+                </button>
+              </div>
+
+              <!-- System Alert -->
+              <div class="notification-item" data-type="system">
+                <div class="notification-icon warning-icon">
+                  <img src="../icon/canh_bao.png" alt="Warning" />
+                </div>
+                <div class="notification-content">
+                  <div class="notification-header">
+                    <h3>Cảnh báo bảo mật</h3>
+                    <span class="notification-time">3 giờ trước</span>
+                  </div>
+                  <p class="notification-message">
+                    Phát hiện 5 lần đăng nhập thất bại từ IP: 192.168.1.100
+                  </p>
+                  <div class="notification-action">
+                    <button class="btn-link">Xem log →</button>
+                  </div>
+                </div>
+                <button class="btn-mark-read" title="Đánh dấu đã đọc">
+                  <img src="../icon/tick.png" alt="Mark read" />
+                </button>
+              </div>
+
+              <!-- Lottery Draw Scheduled -->
+              <div class="notification-item" data-type="lottery">
+                <div class="notification-icon lottery-icon">
+                  <img src="../icon/tro_choi.png" alt="Lottery" />
+                </div>
+                <div class="notification-content">
+                  <div class="notification-header">
+                    <h3>Lịch quay số tự động</h3>
+                    <span class="notification-time">5 giờ trước</span>
+                  </div>
+                  <p class="notification-message">
+                    Phiên quay số tiếp theo sẽ tự động bắt đầu vào 20:00 hôm
+                    nay.
+                  </p>
+                </div>
+                <button class="btn-mark-read" title="Đánh dấu đã đọc">
+                  <img src="../icon/tick.png" alt="Mark read" />
+                </button>
+              </div>
+
+              <!-- Player Win -->
+              <div class="notification-item" data-type="player">
+                <div class="notification-icon success-icon">
+                  <img src="../icon/eth_thang.png" alt="Win" />
+                </div>
+                <div class="notification-content">
+                  <div class="notification-header">
+                    <h3>Người chơi trúng thưởng</h3>
+                    <span class="notification-time">1 ngày trước</span>
+                  </div>
+                  <p class="notification-message">
+                    Người chơi 0x1a2b...3c4d đã trúng giải với 6 số khớp. Phần
+                    thưởng: 50 ETH
+                  </p>
+                  <div class="notification-action">
+                    <button class="btn-link">Xem chi tiết →</button>
+                  </div>
+                </div>
+                <button class="btn-mark-read" title="Đánh dấu đã đọc">
+                  <img src="../icon/tick.png" alt="Mark read" />
+                </button>
+              </div>
+
+              <!-- System Maintenance -->
+              <div class="notification-item" data-type="system">
+                <div class="notification-icon system-icon">
+                  <img src="../icon/icon_cai_dat.png" alt="Maintenance" />
+                </div>
+                <div class="notification-content">
+                  <div class="notification-header">
+                    <h3>Bảo trì hệ thống</h3>
+                    <span class="notification-time">2 ngày trước</span>
+                  </div>
+                  <p class="notification-message">
+                    Hệ thống sẽ bảo trì vào 2:00 AM - 4:00 AM ngày mai. Vui lòng
+                    thông báo cho người chơi.
+                  </p>
+                </div>
+                <button class="btn-mark-read" title="Đánh dấu đã đọc">
+                  <img src="../icon/tick.png" alt="Mark read" />
+                </button>
+              </div>
+
+              <!-- Fund Transfer -->
+              <div class="notification-item" data-type="system">
+                <div class="notification-icon finance-icon">
+                  <img src="../icon/tui_tien.png" alt="Finance" />
+                </div>
+                <div class="notification-content">
+                  <div class="notification-header">
+                    <h3>Chuyển quỹ thành công</h3>
+                    <span class="notification-time">3 ngày trước</span>
+                  </div>
+                  <p class="notification-message">
+                    Đã chuyển 100 ETH từ quỹ dự phòng vào quỹ giải thưởng.
+                  </p>
+                  <div class="notification-action">
+                    <button class="btn-link">Xem giao dịch →</button>
+                  </div>
+                </div>
+                <button class="btn-mark-read" title="Đánh dấu đã đọc">
+                  <img src="../icon/tick.png" alt="Mark read" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/admin-notifications.js"></script>
+  </body>
+</html>

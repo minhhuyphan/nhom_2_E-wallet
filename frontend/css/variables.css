@@ -1,0 +1,21 @@
+/* CSS Variables - Màu sắc và giá trị chung */
+:root {
+  --primary-purple: #a855f7;
+  --primary-gold: #ffd700;
+  --secondary-pink: #ec4899;
+  --bg-main: #0a0a0a;
+  --bg-white: #1a1a1a;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #252525;
+  --text-dark: #ffffff;
+  --text-gray: #9ca3af;
+  --border-color: #2a2a2a;
+  --green: #22c55e;
+  --red: #ef4444;
+  --yellow: #fbbf24;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --glow-purple: 0 0 20px rgba(168, 85, 247, 0.5);
+  --glow-gold: 0 0 20px rgba(255, 215, 0, 0.5);
+  --base-font-size: 16px;
+  --font-scale: 1;
+}

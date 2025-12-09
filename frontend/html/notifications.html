@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ether Lottery - Thông Báo</title>
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/icons.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/notifications.css" />
+    <script src="../js/theme.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Top Navigation -->
+      <nav class="top-nav">
+        <div class="nav-container">
+          <div class="nav-left">
+            <div class="logo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect width="24" height="24" rx="6" fill="#A855F7" />
+                <path d="M12 4L7 12L12 15L17 12L12 4Z" fill="#FFD700" />
+                <path d="M7 13L12 20L17 13L12 16L7 13Z" fill="#FCD34D" />
+              </svg>
+              <span>🍀 Ether Lottery</span>
+            </div>
+            <div class="network-status">
+              <span class="status-dot"></span>
+              <span id="network-name">Sepolia Testnet</span>
+            </div>
+          </div>
+          <div class="nav-right">
+            <a href="index.html" class="btn-secondary">← Trở về</a>
+            <a
+              href="notifications.html"
+              class="icon-btn active"
+              title="Thông báo"
+            >
+              <img
+                src="../icon/thong_bao.png"
+                alt="Notifications"
+                class="nav-icon-img"
+              />
+            </a>
+            <a href="profile.html" class="icon-btn" title="Profile">
+              <img
+                src="../icon/tai_khoan.png"
+                alt="Profile"
+                class="nav-icon-img"
+              />
+            </a>
+            <a href="settings.html" class="icon-btn" title="Settings">
+              <img
+                src="../icon/cai_dat.png"
+                alt="Settings"
+                class="nav-icon-img"
+              />
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="container">
+        <div class="notifications-page">
+          <!-- Page Header -->
+          <div class="page-header">
+            <h1>
+              <img
+                src="../icon/chuong.png"
+                alt="Notifications"
+                class="inline-icon"
+              />
+              Thông Báo
+            </h1>
+            <p class="page-subtitle">
+              Theo dõi hoạt động và cập nhật từ Ether Lottery
+            </p>
+          </div>
+
+          <!-- Notification Actions -->
+          <div class="notification-actions">
+            <div class="action-tabs">
+              <button class="tab-btn active" data-tab="all">
+                Tất cả
+                <span class="badge">5</span>
+              </button>
+              <button class="tab-btn" data-tab="unread">
+                Chưa đọc
+                <span class="badge">3</span>
+              </button>
+              <button class="tab-btn" data-tab="lottery">Xổ số</button>
+              <button class="tab-btn" data-tab="system">Hệ thống</button>
+            </div>
+            <button class="btn-mark-all-read" id="mark-all-read">
+              ✓ Đánh dấu đã đọc
+            </button>
+          </div>
+
+          <!-- Notifications List -->
+          <div class="notifications-container">
+            <!-- Winner Notification -->
+            <div class="notification-item unread">
+              <div class="stat-icon">
+                <img src="../icon/cup.png" alt="Trophy" />
+              </div>
+              <div class="notification-content">
+                <div class="notification-header">
+                  <h3>Chúc mừng! Bạn đã thắng!</h3>
+                  <span class="notification-badge new">MỚI</span>
+                </div>
+                <p class="notification-message">
+                  Bạn đã trúng giải thưởng <strong>2.5 ETH</strong> (~$4,250
+                  USD) trong phiên xổ số #1234. Số tiền đã được chuyển vào ví
+                  của bạn.
+                </p>
+                <div class="notification-meta">
+                  <span class="notification-time">5 phút trước</span>
+                  <a href="#" class="notification-action">Xem chi tiết →</a>
+                </div>
+              </div>
+              <button class="btn-notification-close">×</button>
+            </div>
+
+            <!-- Entry Confirmation -->
+            <div class="notification-item unread">
+              <div class="stat-icon">
+                <img src="../icon/tick.png" alt="Trophy" />
+              </div>
+              <div class="notification-content">
+                <div class="notification-header">
+                  <h3>Tham gia thành công</h3>
+                  <span class="notification-badge">XỔ SỐ</span>
+                </div>
+                <p class="notification-message">
+                  Bạn đã mua vé xổ số thành công với <strong>0.011 ETH</strong>.
+                  Số vé của bạn:
+                  <span class="ticket-number">#0x7f3d...9a2c</span>
+                </p>
+                <div class="notification-meta">
+                  <span class="notification-time">1 giờ trước</span>
+                  <a href="index.html" class="notification-action"
+                    >Xem phiên quay →</a
+                  >
+                </div>
+              </div>
+              <button class="btn-notification-close">×</button>
+            </div>
+
+            <!-- Draw Announcement -->
+            <div class="notification-item unread">
+              <div class="stat-icon">
+                <img src="../icon/loa.png" alt="Money" />
+              </div>
+              <div class="notification-content">
+                <div class="notification-header">
+                  <h3>Phiên quay sắp bắt đầu</h3>
+                  <span class="notification-badge">XỔ SỐ</span>
+                </div>
+                <p class="notification-message">
+                  Phiên xổ số #1235 sẽ quay thưởng sau
+                  <strong>2 giờ nữa</strong>. Giải thưởng hiện tại:
+                  <strong>3.2 ETH</strong> (~$5,440 USD)
+                </p>
+                <div class="notification-meta">
+                  <span class="notification-time">3 giờ trước</span>
+                  <a href="index.html" class="notification-action"
+                    >Mua vé ngay →</a
+                  >
+                </div>
+              </div>
+              <button class="btn-notification-close">×</button>
+            </div>
+
+            <!-- Prize Pool Update -->
+            <div class="notification-item">
+              <div class="stat-icon">
+                <img src="../icon/tui_tien.png" alt="Money" />
+              </div>
+              <div class="notification-content">
+                <div class="notification-header">
+                  <h3>Quỹ thưởng tăng cao</h3>
+                  <span class="notification-badge">XỔ SỐ</span>
+                </div>
+                <p class="notification-message">
+                  Quỹ thưởng đã đạt <strong>5.0 ETH</strong> (~$8,500 USD) - mức
+                  cao nhất tuần này! Đã có <strong>45 người</strong> tham gia.
+                </p>
+                <div class="notification-meta">
+                  <span class="notification-time">1 ngày trước</span>
+                </div>
+              </div>
+              <button class="btn-notification-close">×</button>
+            </div>
+
+            <!-- System Notification -->
+            <div class="notification-item">
+              <div class="notification-icon system">
+                <img src="../icon/icon_cai_dat.png" alt="System" />
+              </div>
+              <div class="notification-content">
+                <div class="notification-header">
+                  <h3>Cập nhật hệ thống</h3>
+                  <span class="notification-badge system">HỆ THỐNG</span>
+                </div>
+                <p class="notification-message">
+                  Smart contract đã được nâng cấp với tính năng bảo mật mới. Tất
+                  cả giao dịch của bạn vẫn an toàn và minh bạch.
+                </p>
+                <div class="notification-meta">
+                  <span class="notification-time">2 ngày trước</span>
+                  <a href="#" class="notification-action">Xem chi tiết →</a>
+                </div>
+              </div>
+              <button class="btn-notification-close">×</button>
+            </div>
+
+            <!-- Empty State (Hidden by default) -->
+            <div class="empty-notifications hidden" id="empty-notifications">
+              <div class="stat-icon">
+                <img src="../icon/chuong.png" alt="Bell" />
+              </div>
+              <h3>Không có thông báo</h3>
+              <p>Bạn đã xem hết tất cả thông báo</p>
+              <a href="index.html" class="btn-primary">Về trang chủ</a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/notifications.js"></script>
+  </body>
+</html>

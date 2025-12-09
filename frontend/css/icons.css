@@ -1,0 +1,37 @@
+/* Icons Styles */
+
+/* Inline Icons */
+.inline-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.btn-icon-small {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.btn-copy-small:hover .btn-icon-small {
+  filter: brightness(1.2);
+}
+
+.btn-icon-loading {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  animation: spin 1s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

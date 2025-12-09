@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ether Lottery - Blockchain Lottery</title>
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/icons.css" />
+    <link rel="stylesheet" href="../css/lottery.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <script src="../js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Top Navigation -->
+      <nav class="top-nav">
+        <div class="nav-container">
+          <div class="nav-left">
+            <div class="logo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect width="24" height="24" rx="6" fill="#A855F7" />
+                <path d="M12 4L7 12L12 15L17 12L12 4Z" fill="#FFD700" />
+                <path d="M7 13L12 20L17 13L12 16L7 13Z" fill="#FCD34D" />
+              </svg>
+              <span>🍀 Ether Lottery</span>
+            </div>
+            <div class="network-status">
+              <span class="status-dot"></span>
+              <span id="network-name">Sepolia Testnet</span>
+            </div>
+          </div>
+          <div class="nav-right">
+            <button class="btn-primary" id="connect-wallet-btn">
+              <span>🦊</span>
+              <span id="wallet-status">Connect MetaMask</span>
+            </button>
+            <a href="notifications.html" class="icon-btn" title="Thông báo">
+              <img
+                src="../icon/thong_bao.png"
+                alt="Notifications"
+                class="nav-icon-img"
+              />
+            </a>
+            <a href="profile.html" class="icon-btn" title="Profile">
+              <img
+                src="../icon/tai_khoan.png"
+                alt="Profile"
+                class="nav-icon-img"
+              />
+            </a>
+            <a href="settings.html" class="icon-btn" title="Settings">
+              <img
+                src="../icon/cai_dat.png"
+                alt="Settings"
+                class="nav-icon-img"
+              />
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="container lottery-container">
+        <!-- Hero Section - Prize Pool -->
+        <section class="hero-section">
+          <div class="prize-pool-card">
+            <img src="../icon/cai_cup.png" alt="Trophy" class="prize-trophy" />
+            <h1 class="prize-title">
+              <img src="../icon/cup.png" alt="Trophy" class="inline-icon" />
+              Giải Thưởng Hiện Tại
+            </h1>
+            <div class="prize-amount">
+              <span class="eth-amount" id="prize-pool-eth">0.00</span>
+              <span class="eth-label">ETH</span>
+            </div>
+            <div class="prize-usd" id="prize-pool-usd">~ $0.00 USD</div>
+          </div>
+        </section>
+
+        <!-- Game Section -->
+        <div class="game-grid">
+          <!-- Player Zone -->
+          <section class="game-card player-zone">
+            <h2>
+              <img src="../icon/ve.png" alt="Ticket" class="inline-icon" />
+              Tham Gia Ngay
+            </h2>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-section">
+              <div class="countdown-label">Giờ vé:</div>
+              <div class="countdown-timer">
+                <div class="time-box">
+                  <span class="time-value" id="hours">00</span>
+                </div>
+                <div class="time-box">
+                  <span class="time-value" id="minutes">00</span>
+                </div>
+                <div class="time-box">
+                  <span class="time-value" id="seconds">00</span>
+                </div>
+                <div class="time-box">
+                  <span class="time-value" id="days">00</span>
+                </div>
+                <div class="time-box">
+                  <span class="time-value" id="months">00</span>
+                </div>
+                <div class="time-box">
+                  <span class="time-value" id="years">00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ticket Info -->
+            <div class="ticket-info">
+              <div class="info-row">
+                <span class="label">Mạng:</span>
+                <span class="value">Sepolia + Testnet</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Giá vé:</span>
+                <span class="value eth-price" id="ticket-price">0.011 ETH</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Phí mạng:</span>
+                <span class="value">~0.0001 ETH</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Địa chỉ:</span>
+                <span class="value small-text" id="contract-address"
+                  >0x0000...0000</span
+                >
+                <button class="btn-copy-small" title="Copy">
+                  <img
+                    src="../icon/coppy.png"
+                    alt="Copy"
+                    class="btn-icon-small"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <button class="btn-enter-game" id="enter-lottery-btn">
+              <span class="btn-text">Xác Nhận Mua</span>
+              <span class="btn-loading hidden">
+                <img
+                  src="../icon/xu_ly.png"
+                  alt="Processing"
+                  class="btn-icon-loading"
+                />
+                Đang xử lý...
+              </span>
+            </button>
+
+            <p class="game-note">
+              ✓ Kết quả hoàn toàn ngẫu nhiên trên Blockchain<br />
+              ✓ Minh bạch, không thể can thiệp
+            </p>
+          </section>
+
+          <!-- Players List -->
+          <section class="game-card players-list">
+            <div class="players-header">
+              <h2>
+                <img
+                  src="../icon/nguoi_choi.png"
+                  alt="Players"
+                  class="inline-icon"
+                />
+                Người Chơi Đang Tham Gia
+              </h2>
+            </div>
+
+            <div class="players-container">
+              <div class="players-stats">
+                <p>Tham gia cờ người chơi năo</p>
+                <p class="text-muted">Mời người ở địa chỉ them gia!</p>
+              </div>
+
+              <ul id="players-list" class="players-ul">
+                <!-- Dynamic content -->
+              </ul>
+
+              <div class="no-players" id="no-players">
+                <p><strong id="players-count">0</strong> người đang tham gia</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- Toast Notifications -->
+      <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <script src="../js/lottery.js"></script>
+  </body>
+</html>

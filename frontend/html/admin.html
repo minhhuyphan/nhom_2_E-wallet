@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ether Lottery - Admin Dashboard</title>
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/icons.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <script src="../js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Sidebar Navigation -->
+      <aside class="admin-sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <rect width="24" height="24" rx="6" fill="#A855F7" />
+              <path d="M12 4L7 12L12 15L17 12L12 4Z" fill="#FFD700" />
+              <path d="M7 13L12 20L17 13L12 16L7 13Z" fill="#FCD34D" />
+            </svg>
+            <span>Ether Lottery</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="admin.html" class="sidebar-item active">
+            <img
+              src="../icon/tro_choi.png"
+              alt="Lottery"
+              class="sidebar-icon"
+            />
+            <span>Quay Số Trúng Thưởng</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img
+              src="../icon/lich_su_tham_gia.png"
+              alt="History"
+              class="sidebar-icon"
+            />
+            <span>Lịch Sử</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img src="../icon/ho_so.png" alt="Players" class="sidebar-icon" />
+            <span>Người Chơi</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <img
+              src="../icon/tui_tien.png"
+              alt="Finance"
+              class="sidebar-icon"
+            />
+            <span>Tài Chính</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="admin-profile">
+            <div class="admin-avatar">
+              <img src="../icon/tai_khoan.png" alt="Admin" />
+            </div>
+            <div class="admin-info">
+              <div class="admin-name">admin</div>
+              <div class="admin-role">Administrator</div>
+            </div>
+          </div>
+          <a href="index.html" class="btn-logout">
+            <span>←</span> Thoát Admin
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="admin-main">
+        <!-- Top Bar -->
+        <header class="admin-header">
+          <div class="header-left">
+            <h1>Quay Số Trúng Thưởng</h1>
+            <div class="network-status">
+              <span class="status-dot"></span>
+              <span id="network-name">Sepolia Testnet</span>
+            </div>
+          </div>
+          <div class="header-right">
+            <a
+              href="admin-notifications.html"
+              class="icon-btn"
+              title="Thông báo"
+            >
+              <img
+                src="../icon/thong_bao.png"
+                alt="Notifications"
+                class="nav-icon-img"
+              />
+              <span class="notification-badge">3</span>
+            </a>
+            <a href="admin-settings.html" class="icon-btn" title="Cài đặt">
+              <img
+                src="../icon/cai_dat.png"
+                alt="Settings"
+                class="nav-icon-img"
+              />
+            </a>
+          </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="admin-content">
+          <!-- Lottery Draw Section -->
+          <section class="draw-section">
+            <div class="draw-card">
+              <div class="draw-header">
+                <img src="../icon/cup.png" alt="Trophy" class="inline-icon" />
+                <h2>QUAY SỐ TRÚNG THƯỞNG</h2>
+              </div>
+
+              <div class="draw-animation">
+                <div class="number-slots">
+                  <div class="slot-container">
+                    <div class="number-slot spinning" id="slot-1">
+                      <span class="number">-</span>
+                    </div>
+                  </div>
+                  <div class="slot-container">
+                    <div class="number-slot spinning" id="slot-2">
+                      <span class="number">-</span>
+                    </div>
+                  </div>
+                  <div class="slot-container">
+                    <div class="number-slot spinning" id="slot-3">
+                      <span class="number">-</span>
+                    </div>
+                  </div>
+                  <div class="slot-container">
+                    <div class="number-slot spinning" id="slot-4">
+                      <span class="number">-</span>
+                    </div>
+                    <div class="slot-glow"></div>
+                  </div>
+                  <div class="slot-container">
+                    <div class="number-slot spinning" id="slot-5">
+                      <span class="number">-</span>
+                    </div>
+                    <div class="slot-glow"></div>
+                  </div>
+                  <div class="slot-container">
+                    <div class="number-slot spinning" id="slot-6">
+                      <span class="number">-</span>
+                    </div>
+                    <div class="slot-glow"></div>
+                  </div>
+                </div>
+
+                <button class="btn-draw" id="btn-draw">
+                  <span class="btn-text">QUAY NGAY</span>
+                  <span class="btn-loading hidden">
+                    <img
+                      src="../icon/xu_ly.png"
+                      alt="Loading"
+                      class="btn-icon-loading"
+                    />
+                    Đang quay...
+                  </span>
+                </button>
+              </div>
+
+              <div class="draw-info">
+                <div class="info-box">
+                  <div class="info-label">Phiên hiện tại:</div>
+                  <div class="info-value" id="current-round">#1234</div>
+                </div>
+                <div class="info-box">
+                  <div class="info-label">Tổng giải thưởng:</div>
+                  <div class="info-value prize-value" id="prize-amount">
+                    5.00 ETH
+                  </div>
+                </div>
+                <div class="info-box">
+                  <div class="info-label">Người trúng:</div>
+                  <div class="info-value" id="winner-count">0</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Recent Results Section -->
+          <section class="results-section">
+            <div class="section-header">
+              <h3>
+                <img
+                  src="../icon/lich_su_tham_gia.png"
+                  alt="History"
+                  class="inline-icon"
+                />
+                KẾT QUẢ PHIÊN GẦN ĐÂY
+              </h3>
+            </div>
+
+            <div class="results-list">
+              <div class="result-item">
+                <div class="result-numbers">10 4 5 3 13</div>
+                <div class="result-time">17:38:00M</div>
+              </div>
+              <div class="result-item">
+                <div class="result-numbers">10 3 9 9 10</div>
+                <div class="result-time">12:01:54M</div>
+              </div>
+              <div class="result-item">
+                <div class="result-numbers">10 2 5 5 6</div>
+                <div class="result-time">12:48:39M</div>
+              </div>
+              <div class="result-item">
+                <div class="result-numbers">10 4 8 1 7</div>
+                <div class="result-time">12:18:08M</div>
+              </div>
+              <div class="result-item">
+                <div class="result-numbers">20 87 08 29</div>
+                <div class="result-time">12:01:35M</div>
+              </div>
+              <div class="result-item highlight">
+                <div class="result-numbers">20 89 10 57</div>
+                <div class="result-time">12:04:35M</div>
+                <div class="result-label">2,125,983.92$</div>
+              </div>
+              <div class="result-item">
+                <div class="result-numbers">20 23 93 45</div>
+                <div class="result-time">12:06:18M</div>
+                <div class="result-label">2,125,983.82$</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Statistics Cards -->
+          <section class="stats-section">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <img src="../icon/nguoi_choi.png" alt="Players" />
+                </div>
+                <div class="stat-content">
+                  <div class="stat-label">Tổng Người Chơi</div>
+                  <div class="stat-value" id="total-players">1,234</div>
+                  <div class="stat-change positive">+12.5%</div>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <img src="../icon/ve.png" alt="Tickets" />
+                </div>
+                <div class="stat-content">
+                  <div class="stat-label">Vé Đã Bán</div>
+                  <div class="stat-value" id="total-tickets">5,678</div>
+                  <div class="stat-change positive">+8.3%</div>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <img src="../icon/eth_thang.png" alt="Revenue" />
+                </div>
+                <div class="stat-content">
+                  <div class="stat-label">Tổng Doanh Thu</div>
+                  <div class="stat-value" id="total-revenue">125.5 ETH</div>
+                  <div class="stat-change positive">+15.7%</div>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <img src="../icon/cup.png" alt="Winners" />
+                </div>
+                <div class="stat-content">
+                  <div class="stat-label">Người Thắng Hôm Nay</div>
+                  <div class="stat-value" id="today-winners">23</div>
+                  <div class="stat-change negative">-5.2%</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Recent Players Table -->
+          <section class="players-section">
+            <div class="section-header">
+              <h3>
+                <img
+                  src="../icon/ho_so.png"
+                  alt="Players"
+                  class="inline-icon"
+                />
+                Người Chơi Gần Đây
+              </h3>
+              <button class="btn-secondary">Xem tất cả</button>
+            </div>
+
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Địa chỉ ví</th>
+                    <th>Số vé</th>
+                    <th>Số tiền</th>
+                    <th>Thời gian</th>
+                    <th>Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody id="players-table">
+                  <tr>
+                    <td class="address">0x742d...3a9c</td>
+                    <td>3</td>
+                    <td class="amount">0.033 ETH</td>
+                    <td>2 phút trước</td>
+                    <td><span class="status-badge pending">Chờ quay</span></td>
+                  </tr>
+                  <tr>
+                    <td class="address">0x8f2d...7b1e</td>
+                    <td>1</td>
+                    <td class="amount">0.011 ETH</td>
+                    <td>5 phút trước</td>
+                    <td><span class="status-badge pending">Chờ quay</span></td>
+                  </tr>
+                  <tr>
+                    <td class="address">0x3c4a...9d2f</td>
+                    <td>5</td>
+                    <td class="amount">0.055 ETH</td>
+                    <td>12 phút trước</td>
+                    <td><span class="status-badge win">Thắng</span></td>
+                  </tr>
+                  <tr>
+                    <td class="address">0x1a2b...4e5f</td>
+                    <td>2</td>
+                    <td class="amount">0.022 ETH</td>
+                    <td>18 phút trước</td>
+                    <td><span class="status-badge lose">Thua</span></td>
+                  </tr>
+                  <tr>
+                    <td class="address">0x9e8d...6c7b</td>
+                    <td>4</td>
+                    <td class="amount">0.044 ETH</td>
+                    <td>25 phút trước</td>
+                    <td><span class="status-badge lose">Thua</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/admin.js"></script>
+  </body>
+</html>

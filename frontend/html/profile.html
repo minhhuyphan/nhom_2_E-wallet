@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ether Lottery - Profile</title>
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/icons.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <script src="../js/theme.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Top Navigation -->
+      <nav class="top-nav">
+        <div class="nav-container">
+          <div class="nav-left">
+            <div class="logo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect width="24" height="24" rx="6" fill="#A855F7" />
+                <path d="M12 4L7 12L12 15L17 12L12 4Z" fill="#FFD700" />
+                <path d="M7 13L12 20L17 13L12 16L7 13Z" fill="#FCD34D" />
+              </svg>
+              <span>🍀 Ether Lottery</span>
+            </div>
+            <div class="network-status">
+              <span class="status-dot"></span>
+              <span id="network-name">Sepolia Testnet</span>
+            </div>
+          </div>
+          <div class="nav-right">
+            <a href="index.html" class="btn-secondary">← Trở về</a>
+            <a href="notifications.html" class="icon-btn" title="Thông báo">
+              <img
+                src="../icon/thong_bao.png"
+                alt="Notifications"
+                class="nav-icon-img"
+              />
+            </a>
+            <a href="profile.html" class="icon-btn active" title="Profile">
+              <img
+                src="../icon/tai_khoan.png"
+                alt="Profile"
+                class="nav-icon-img"
+              />
+            </a>
+            <a href="settings.html" class="icon-btn" title="Settings">
+              <img
+                src="../icon/cai_dat.png"
+                alt="Settings"
+                class="nav-icon-img"
+              />
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="container">
+        <div class="profile-page">
+          <!-- Page Header -->
+          <div class="page-header">
+            <h1>
+              <img src="../icon/ho_so.png" alt="Profile" class="inline-icon" />
+              Hồ Sơ Người Chơi
+            </h1>
+            <p class="page-subtitle">
+              Thông tin tài khoản MetaMask và lịch sử tham gia
+            </p>
+          </div>
+
+          <!-- Profile Card -->
+          <div class="profile-card">
+            <div class="profile-section">
+              <h2>Thông Tin Ví</h2>
+
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Địa chỉ ví:</span>
+                  <span class="info-value" id="wallet-address">
+                    Chưa kết nối
+                  </span>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-label">Số dư ETH:</span>
+                  <span class="info-value" id="wallet-balance">
+                    0.0000 ETH
+                  </span>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-label">Network:</span>
+                  <span class="info-value" id="network-name">
+                    Sepolia Testnet
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="profile-section">
+              <h2>
+                <img
+                  src="../icon/thong_ke.png"
+                  alt="Stats"
+                  class="inline-icon"
+                />
+                Thống Kê
+              </h2>
+
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <img src="../icon/ve.png" alt="Ticket" />
+                  </div>
+                  <div class="stat-value" id="total-entries">0</div>
+                  <div class="stat-label">Lần tham gia</div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <img src="../icon/cup.png" alt="Trophy" />
+                  </div>
+                  <div class="stat-value" id="total-wins">0</div>
+                  <div class="stat-label">Lần thắng</div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <img src="../icon/tui_tien.png" alt="Money" />
+                  </div>
+                  <div class="stat-value" id="total-spent">0.000</div>
+                  <div class="stat-label">ETH đã chi</div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <img src="../icon/eth_thang.png" alt="Won" />
+                  </div>
+                  <div class="stat-value" id="total-won">0.000</div>
+                  <div class="stat-label">ETH đã thắng</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- History Section -->
+            <div class="profile-section">
+              <h2>
+                <img
+                  src="../icon/lich_su_tham_gia.png"
+                  alt="History"
+                  class="inline-icon"
+                />
+                Lịch Sử Tham Gia
+              </h2>
+
+              <div class="history-table">
+                <div class="table-header">
+                  <div>Thời gian</div>
+                  <div>Số tiền</div>
+                  <div>Kết quả</div>
+                </div>
+
+                <div class="history-list" id="history-list">
+                  <div class="no-history">
+                    <div class="empty-state-card">
+                      <div class="empty-icon">
+                        <img src="../icon/tro_choi.png" alt="Lottery" />
+                      </div>
+                      <p>Thử vận may với xổ số blockchain ngay hôm nay!</p>
+                      <p class="empty-subtitle">
+                        Mua vé và có cơ hội trở thành người chiến thắng tiếp
+                        theo
+                      </p>
+                      <div class="empty-actions">
+                        <a href="index.html" class="btn-play-now">
+                          <span>▶</span>
+                          Chơi Ngay
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="lottery.js"></script>
+    <script>
+      // Load user profile data
+      document.addEventListener("DOMContentLoaded", async () => {
+        if (typeof window.ethereum !== "undefined" && userAccount) {
+          // Display wallet address
+          document.getElementById("wallet-address").textContent = userAccount;
+
+          // Get balance
+          const balance = await web3.eth.getBalance(userAccount);
+          const balanceInEth = web3.utils.fromWei(balance, "ether");
+          document.getElementById("wallet-balance").textContent =
+            parseFloat(balanceInEth).toFixed(4) + " ETH";
+        }
+
+        // Load stats from localStorage
+        const stats = JSON.parse(localStorage.getItem("lotteryStats") || "{}");
+        document.getElementById("total-entries").textContent =
+          stats.entries || 0;
+        document.getElementById("total-wins").textContent = stats.wins || 0;
+        document.getElementById("total-spent").textContent = (
+          stats.spent || 0
+        ).toFixed(4);
+        document.getElementById("total-won").textContent = (
+          stats.won || 0
+        ).toFixed(4);
+      });
+    </script>
+  </body>
+</html>

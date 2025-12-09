@@ -1,0 +1,460 @@
+/* Lottery Specific Styles */
+
+.lottery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* Hero Section - Prize Pool */
+.hero-section {
+  margin-bottom: 48px;
+}
+
+.prize-pool-card {
+  background: linear-gradient(
+    135deg,
+    rgba(75, 45, 100, 0.85) 0%,
+    rgba(90, 70, 50, 0.85) 50%,
+    rgba(100, 80, 60, 0.85) 100%
+  );
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(168, 85, 247, 0.2);
+}
+
+.prize-pool-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+.prize-trophy {
+  position: absolute;
+  right: 50px;
+  bottom: 20px;
+  width: 80px;
+  height: auto;
+  opacity: 0.95;
+  filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.4));
+  animation: float 3s ease-in-out infinite;
+  transform: rotate(-15deg);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: rotate(-15deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-15deg) translateY(-8px);
+  }
+}
+
+.prize-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.prize-amount {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.eth-amount {
+  font-size: 72px;
+  font-weight: 900;
+  background: linear-gradient(to right, var(--primary-gold), #fcd34d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--glow-gold);
+  line-height: 1;
+}
+
+.eth-label {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  opacity: 0.9;
+}
+
+.prize-usd {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 16px;
+}
+
+/* Game Grid */
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.game-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.game-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+.game-card h2 {
+  font-size: 20px;
+  margin-bottom: 24px;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.game-card h2 .inline-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Player Zone */
+.player-zone {
+  position: relative;
+}
+
+/* Countdown Timer */
+.countdown-section {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--bg-main);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.countdown-label {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.countdown-timer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.time-box {
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.1),
+    rgba(236, 72, 153, 0.1)
+  );
+  border: 2px solid var(--primary-purple);
+  border-radius: 8px;
+  padding: 12px 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.time-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+
+.time-value {
+  display: block;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--primary-gold);
+  font-family: monospace;
+}
+
+/* Ticket Info */
+.ticket-info {
+  margin-bottom: 24px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row .label {
+  color: var(--text-gray);
+  font-size: 14px;
+}
+
+.info-row .value {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.info-row .value.eth-price {
+  color: var(--primary-gold);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.info-row .value.small-text {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.btn-enter-game {
+  width: 100%;
+  padding: 16px 32px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-purple),
+    var(--secondary-pink)
+  );
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-enter-game:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+}
+
+.btn-enter-game:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-enter-game .btn-loading {
+  display: none;
+}
+
+.btn-enter-game .btn-loading.hidden {
+  display: none;
+}
+
+.btn-enter-game .btn-text.hidden {
+  display: none;
+}
+
+.game-note {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* Players List */
+.players-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.players-header h2 {
+  margin: 0;
+}
+
+.btn-refresh {
+  padding: 8px 16px;
+  background: var(--primary-yellow);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-refresh:hover {
+  background: #ffa500;
+  transform: scale(1.05);
+}
+
+.players-stats {
+  text-align: center;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: var(--bg-main);
+  border-radius: 8px;
+}
+
+.players-stats p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: var(--text-dark);
+}
+
+.players-stats .text-muted {
+  color: var(--text-gray);
+  font-size: 13px;
+}
+
+.players-container {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.players-ul {
+  list-style: none;
+}
+
+.player-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-main);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.player-item:hover {
+  border-color: var(--primary-purple);
+  background: var(--bg-card-hover);
+}
+
+.player-item.is-you {
+  border-color: var(--primary-gold);
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.player-icon {
+  font-size: 20px;
+}
+
+.player-address {
+  flex: 1;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.you-badge,
+.new-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.you-badge {
+  background: var(--primary-gold);
+  color: black;
+}
+
+.new-badge {
+  background: var(--green);
+  color: white;
+}
+
+.no-players {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-gray);
+}
+
+.no-players p {
+  margin-bottom: 8px;
+}
+
+.players-summary {
+  text-align: center;
+  padding: 16px;
+  background: var(--bg-main);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+  color: var(--text-gray);
+}
+
+.players-summary strong {
+  color: var(--primary-purple);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eth-amount {
+    font-size: 48px;
+  }
+
+  .eth-label {
+    font-size: 24px;
+  }
+
+  .prize-pool-card {
+    padding: 32px 24px;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .time-value {
+    font-size: 18px;
+  }
+}

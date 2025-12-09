@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ether Lottery - Settings</title>
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/icons.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="stylesheet" href="../css/settings.css" />
+    <script src="../js/theme.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Top Navigation -->
+      <nav class="top-nav">
+        <div class="nav-container">
+          <div class="nav-left">
+            <div class="logo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect width="24" height="24" rx="6" fill="#A855F7" />
+                <path d="M12 4L7 12L12 15L17 12L12 4Z" fill="#FFD700" />
+                <path d="M7 13L12 20L17 13L12 16L7 13Z" fill="#FCD34D" />
+              </svg>
+              <span>🍀 Ether Lottery</span>
+            </div>
+            <div class="network-status">
+              <span class="status-dot"></span>
+              <span id="network-name">Sepolia Testnet</span>
+            </div>
+          </div>
+          <div class="nav-right">
+            <a href="index.html" class="btn-secondary">← Trở về</a>
+            <a href="notifications.html" class="icon-btn" title="Thông báo">
+              <img
+                src="../icon/thong_bao.png"
+                alt="Notifications"
+                class="nav-icon-img"
+              />
+            </a>
+            <a href="profile.html" class="icon-btn" title="Profile">
+              <img
+                src="../icon/tai_khoan.png"
+                alt="Profile"
+                class="nav-icon-img"
+              />
+            </a>
+            <a href="settings.html" class="icon-btn active" title="Settings">
+              <img
+                src="../icon/cai_dat.png"
+                alt="Settings"
+                class="nav-icon-img"
+              />
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="container">
+        <div class="settings-page">
+          <!-- Page Header -->
+          <div class="page-header">
+            <div class="page-title-row">
+              <div>
+                <h1>
+                  <img
+                    src="../icon/icon_cai_dat.png"
+                    alt="Settings"
+                    class="inline-icon"
+                  />
+                  Settings
+                </h1>
+                <p class="page-subtitle">
+                  Tùy chỉnh giao diện, hiển thị và thông báo
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Settings Tabs -->
+          <div class="settings-tabs">
+            <button class="settings-tab active" data-tab="appearance">
+              <span class="tab-icon"
+                ><img
+                  src="../icon/giao_dien.png"
+                  alt="Theme"
+                  class="btn-icon-small"
+              /></span>
+              <span>Giao diện</span>
+            </button>
+            <button class="settings-tab" data-tab="lottery">
+              <span class="tab-icon"
+                ><img
+                  src="../icon/tro_choi.png"
+                  alt="Lottery"
+                  class="btn-icon-small"
+              /></span>
+              <span>Xổ Số</span>
+            </button>
+            <button class="settings-tab" data-tab="advanced">
+              <span class="tab-icon"
+                ><img
+                  src="../icon/icon_cai_dat.png"
+                  alt="Advanced"
+                  class="btn-icon-small"
+              /></span>
+              <span>Nâng cao</span>
+            </button>
+          </div>
+
+          <!-- Settings Content -->
+          <div class="settings-content">
+            <!-- Appearance Tab -->
+            <div class="settings-panel active" id="appearance-panel">
+              <div class="settings-card">
+                <h2>
+                  <img
+                    src="../icon/giao_dien.png"
+                    alt="Theme"
+                    class="inline-icon"
+                  />
+                  Giao Diện
+                </h2>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Ngôn ngữ</span>
+                    <span class="label-desc">Chọn ngôn ngữ hiển thị</span>
+                  </div>
+                  <div class="setting-control">
+                    <select class="setting-select" id="language-select" title="Chọn ngôn ngữ hiển thị">
+                      <option value="vi" selected>🇻🇳 Tiếng Việt</option>
+                      <option value="en">🇺🇸 English</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Kích thước chữ</span>
+                    <span class="label-desc">Điều chỉnh cỡ chữ hiển thị</span>
+                  </div>
+                  <div class="setting-control">
+                    <select class="setting-select" id="font-size-select" title="Điều chỉnh cỡ chữ hiển thị">
+                      <option value="small">Nhỏ</option>
+                      <option value="medium" selected>Trung bình</option>
+                      <option value="large">Lớn</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lottery Tab -->
+            <div class="settings-panel" id="lottery-panel">
+              <div class="settings-card">
+                <h2>
+                  <img
+                    src="../icon/tro_choi.png"
+                    alt="Lottery"
+                    class="inline-icon"
+                  />
+                  Cài Đặt Xổ Số
+                </h2>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Đơn vị tiền tệ hiển thị</span>
+                    <span class="label-desc"
+                      >Hiển thị giá trị giải thưởng bằng</span
+                    >
+                  </div>
+                  <div class="setting-control">
+                    <select class="setting-select" id="currency-select" title="Hiển thị giá trị giải thưởng bằng">
+                      <option value="usd" selected>USD - Đô la Mỹ ($)</option>
+                      <option value="vnd">VND - Việt Nam Đồng (₫)</option>
+                      <option value="eur">EUR - Euro (€)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Độ chính xác ETH</span>
+                    <span class="label-desc">Số chữ số thập phân hiển thị</span>
+                  </div>
+                  <div class="setting-control">
+                    <select class="setting-select" id="eth-decimals-select" title="Số chữ số thập phân hiển thị">
+                      <option value="2">2 chữ số (0.01 ETH)</option>
+                      <option value="4" selected>4 chữ số (0.0001 ETH)</option>
+                      <option value="6">6 chữ số (0.000001 ETH)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Tự động cập nhật danh sách</span>
+                    <span class="label-desc">Tự động tải lại người chơi</span>
+                  </div>
+                  <div class="setting-control">
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="auto-refresh-toggle" title="Tự động tải lại người chơi" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Khoảng thời gian cập nhật</span>
+                    <span class="label-desc">Tần suất tải lại (giây)</span>
+                  </div>
+                  <div class="setting-control">
+                    <select class="setting-select" id="refresh-interval-select" title="Tần suất tải lại (giây)">
+                      <option value="5">5 giây</option>
+                      <option value="10" selected>10 giây</option>
+                      <option value="30">30 giây</option>
+                      <option value="60">60 giây</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Âm thanh thông báo</span>
+                    <span class="label-desc"
+                      >Phát âm thanh khi có người thắng</span
+                    >
+                  </div>
+                  <div class="setting-control">
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="sound-notify-toggle" title="Phát âm thanh khi có người thắng" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Advanced Tab -->
+            <div class="settings-panel" id="advanced-panel">
+              <div class="settings-card">
+                <h2>
+                  <img
+                    src="../icon/icon_cai_dat.png"
+                    alt="Advanced"
+                    class="inline-icon"
+                  />
+                  Nâng Cao
+                </h2>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Network mặc định</span>
+                    <span class="label-desc">Mạng blockchain đang sử dụng</span>
+                  </div>
+                  <div class="setting-control">
+                    <select class="setting-select" id="network-select" title="Mạng blockchain đang sử dụng">
+                      <option value="mainnet">Ethereum Mainnet</option>
+                      <option value="sepolia" selected>Sepolia Testnet</option>
+                      <option value="goerli">Goerli Testnet</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Gas fee ưu tiên</span>
+                    <span class="label-desc">Tốc độ xử lý giao dịch</span>
+                  </div>
+                  <div class="setting-control">
+                    <select class="setting-select" id="gas-fee-select" title="Tốc độ xử lý giao dịch">
+                      <option value="low">Thấp (chậm, rẻ)</option>
+                      <option value="medium" selected>Trung bình</option>
+                      <option value="high">Cao (nhanh, đắt)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Developer mode</span>
+                    <span class="label-desc">Hiển thị console logs</span>
+                  </div>
+                  <div class="setting-control">
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="dev-mode-toggle" title="Hiển thị console logs" />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Xóa cache</span>
+                    <span class="label-desc">Làm mới dữ liệu tạm thời</span>
+                  </div>
+                  <div class="setting-control">
+                    <button class="btn-secondary" id="clear-cache-btn">
+                      Xóa cache
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="settings-card danger-zone">
+                <h2>
+                  <img
+                    src="../icon/canh_bao.png"
+                    alt="Warning"
+                    class="inline-icon"
+                  />
+                  Vùng Nguy Hiểm
+                </h2>
+
+                <div class="setting-item">
+                  <div class="setting-label">
+                    <span class="label-title">Đặt lại tất cả</span>
+                    <span class="label-desc"
+                      >Xóa toàn bộ cài đặt, quay về mặc định</span
+                    >
+                  </div>
+                  <div class="setting-control">
+                    <button class="btn-danger" id="reset-all-btn">
+                      Đặt lại
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/settings.js"></script>
+  </body>
+</html>
