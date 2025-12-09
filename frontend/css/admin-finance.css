@@ -96,8 +96,8 @@
   border-radius: 15px;
   padding: 25px;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .finance-stat-card.income {

@@ -47,12 +47,9 @@ function updateStats(stats) {
 // Draw Lottery
 function setupDrawButton() {
   const btnDraw = document.getElementById("btn-draw");
-  console.log("Setup draw button:", btnDraw); // Debug log
 
   if (btnDraw) {
-    console.log("Button found, adding click listener"); // Debug log
     btnDraw.addEventListener("click", async () => {
-      console.log("Button clicked!"); // Debug log
       try {
         btnDraw.disabled = true;
         btnDraw.querySelector(".btn-text").classList.add("hidden");

@@ -119,6 +119,16 @@
   margin-bottom: 16px;
 }
 
+.admin-profile-link {
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.admin-profile-link:hover {
+  opacity: 0.9;
+}
+
 .admin-avatar {
   width: 40px;
   height: 40px;

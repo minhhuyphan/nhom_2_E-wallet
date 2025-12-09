@@ -301,8 +301,8 @@
   border: 1px solid rgba(139, 92, 246, 0.35);
   border-radius: 20px;
   padding: 30px;
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   position: relative;
