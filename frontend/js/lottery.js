@@ -4,11 +4,140 @@ let contract;
 let userAccount;
 let isAdmin = false;
 
-// Contract Configuration
-const CONTRACT_ADDRESS = "YOUR_CONTRACT_ADDRESS_HERE"; // Replace with deployed contract
+// Contract Configuration - DEPLOYED ON SEPOLIA
+const CONTRACT_ADDRESS = "0x327F9548dC8599c634598f4a1b538C6351CfB22f"; // Sepolia Testnet
 const CONTRACT_ABI = [
-  // Add your contract ABI here after deployment
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "player",
+        "type": "address"
+      }
+    ],
+    "name": "PlayerEntered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "winner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "WinnerPicked",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "enter",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "entranceFee",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPlayers",
+    "outputs": [
+      {
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "manager",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pickWinner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_fee",
+        "type": "uint256"
+      }
+    ],
+    "name": "setEntranceFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
 ];
+
+// Sepolia Testnet Config (Ethereum)
+const SEPOLIA_CHAIN_ID = "0xaa36a7"; // 11155111
+const SEPOLIA_NETWORK = {
+  chainId: SEPOLIA_CHAIN_ID,
+  chainName: "Sepolia Testnet",
+  nativeCurrency: {
+    name: "Sepolia ETH",
+    symbol: "ETH",
+    decimals: 18
+  },
+  rpcUrls: ["https://eth-sepolia.g.alchemy.com/v2/demo"],
+  blockExplorerUrls: ["https://sepolia.etherscan.io"]
+};
 
 // ETH to USD conversion rate (update from API in production)
 let ethToUsd = 2000;
@@ -17,15 +146,80 @@ let ethToUsd = 2000;
 document.addEventListener("DOMContentLoaded", async () => {
   loadTheme();
   setupEventListeners();
-  checkWalletConnection();
-
+  
   // Check if MetaMask is installed
   if (typeof window.ethereum !== "undefined") {
     web3 = new Web3(window.ethereum);
+    
+    // Check and switch to Sepolia network
+    await ensureSepoliaNetwork();
+    
+    // Then check wallet connection
+    await checkWalletConnection();
   } else {
-    showToast("Please install MetaMask to use this dApp", "error");
+    showToast("Vui lòng cài đặt MetaMask để sử dụng dApp", "error");
   }
 });
+
+// Ensure connected to Sepolia network
+async function ensureSepoliaNetwork() {
+  try {
+    const chainId = await window.ethereum.request({ method: "eth_chainId" });
+    
+    if (chainId !== SEPOLIA_CHAIN_ID) {
+      console.log("Switching to Sepolia testnet...");
+      await switchToSepoliaNetwork();
+    } else {
+      console.log("Already on Sepolia testnet");
+      updateNetworkDisplay("Sepolia Testnet");
+    }
+  } catch (error) {
+    console.error("Error checking network:", error);
+  }
+}
+
+// Switch to Sepolia network
+async function switchToSepoliaNetwork() {
+  try {
+    await window.ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: SEPOLIA_CHAIN_ID }]
+    });
+    console.log("✅ Switched to Sepolia testnet");
+    updateNetworkDisplay("Sepolia Testnet");
+  } catch (error) {
+    // If network not added, add it
+    if (error.code === 4902) {
+      await addSepoliaNetwork();
+    } else {
+      console.error("Error switching network:", error);
+      showToast("Vui lòng chuyển sang Sepolia Testnet trong MetaMask", "error");
+    }
+  }
+}
+
+// Add Sepolia network to MetaMask
+async function addSepoliaNetwork() {
+  try {
+    await window.ethereum.request({
+      method: "wallet_addEthereumChain",
+      params: [SEPOLIA_NETWORK]
+    });
+    console.log("✅ Sepolia network added");
+    updateNetworkDisplay("Sepolia Testnet");
+  } catch (error) {
+    console.error("Error adding network:", error);
+    showToast("Không thể thêm Sepolia network", "error");
+  }
+}
+
+// Update network display
+function updateNetworkDisplay(networkName) {
+  const networkElement = document.getElementById("network-name");
+  if (networkElement) {
+    networkElement.textContent = networkName;
+  }
+}
 
 // Event Listeners
 function setupEventListeners() {
@@ -48,6 +242,9 @@ function setupEventListeners() {
 
 // Connect Wallet
 async function connectWallet() {
+  // Ensure on Sepolia network first
+  await ensureSepoliaNetwork();
+  
   // Redirect to connect page
   window.location.href = "../html/connect.html";
 }
