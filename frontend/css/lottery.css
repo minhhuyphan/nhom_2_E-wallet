@@ -347,7 +347,7 @@
 }
 
 .players-container {
-  max-height: 300px;
+  max-height: 800px;
   overflow-y: auto;
   margin-bottom: 16px;
 }
