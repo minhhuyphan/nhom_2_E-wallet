@@ -135,6 +135,89 @@ async function loadStats() {
 
   // Load tickets
   await loadMyTickets();
+
+  // Load history
+  await loadHistory();
+}
+
+// Load history
+async function loadHistory() {
+  try {
+    const response = await apiCall("/api/lottery/my-tickets?limit=20", "GET");
+
+    if (response.success && response.data.tickets.length > 0) {
+      displayHistory(response.data.tickets);
+    } else {
+      document.getElementById("history-list").innerHTML = `
+        <div class="no-history">
+          <p style="color: rgba(255,255,255,0.6);">Chưa có lịch sử giao dịch</p>
+        </div>
+      `;
+    }
+  } catch (error) {
+    console.error("Error loading history:", error);
+    document.getElementById("history-list").innerHTML = `
+      <div class="no-history">
+        <p style="color: rgba(255,255,255,0.5);">Không thể tải lịch sử</p>
+      </div>
+    `;
+  }
+}
+
+// Display history
+function displayHistory(tickets) {
+  const container = document.getElementById("history-list");
+
+  if (!tickets || tickets.length === 0) {
+    container.innerHTML = `
+      <div class="no-history">
+        <p style="color: rgba(255,255,255,0.6);">Chưa có lịch sử giao dịch</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = tickets
+    .map((ticket) => {
+      const date = new Date(ticket.purchaseDate);
+      const dateStr = date.toLocaleDateString("vi-VN");
+      const timeStr = date.toLocaleTimeString("vi-VN", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      let resultClass = "pending";
+      let resultText = "Đang chờ";
+
+      if (ticket.status === "won") {
+        resultClass = "won";
+        resultText = "Trúng thưởng";
+      } else if (ticket.status === "lost") {
+        resultClass = "lost";
+        resultText = "Không trúng";
+      } else if (ticket.status === "active") {
+        resultClass = "pending";
+        resultText = "Chờ quay";
+      }
+
+      return `
+      <div class="history-item">
+        <div class="history-time">
+          <span class="history-date">${dateStr}</span>
+          <span class="history-hour">${timeStr}</span>
+        </div>
+        <div class="history-type">
+          <span class="history-type-icon">🎫</span>
+          <span>Mua vé: ${ticket.ticketNumber}</span>
+        </div>
+        <div class="history-amount negative">-${ticket.amount} ETH</div>
+        <div>
+          <span class="history-result ${resultClass}">${resultText}</span>
+        </div>
+      </div>
+    `;
+    })
+    .join("");
 }
 
 // Load my tickets
