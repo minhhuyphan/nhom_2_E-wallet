@@ -1,5 +1,23 @@
 {
+  "name": "ether-lottery",
+  "version": "1.0.0",
+  "description": "Blockchain lottery dApp on Hoodi testnet",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network sepolia",
+    "deploy:hoodi": "hardhat run scripts/deploy.js --network hoodi",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "verify": "hardhat run scripts/verify.js --network sepolia",
+    "test": "hardhat test",
+    "frontend": "cd frontend && npx http-server -p 5500",
+    "backend": "cd backend && npm start"
+  },
   "dependencies": {
     "mongodb": "^7.0.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.0",
+    "dotenv": "^16.3.1"
   }
 }
