@@ -55,6 +55,6 @@ const ticketSchema = new mongoose.Schema(
 // Index for faster queries
 ticketSchema.index({ user: 1, purchaseDate: -1 });
 ticketSchema.index({ ticketNumber: 1 });
-ticketSchema.index({ transactionHash: 1 });
+// transactionHash is already indexed by unique: true
 
 module.exports = mongoose.model("Ticket", ticketSchema);
