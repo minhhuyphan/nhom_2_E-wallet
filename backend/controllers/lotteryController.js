@@ -1,5 +1,6 @@
 const Ticket = require("../models/Ticket");
 const User = require("../models/User");
+const Notification = require("../models/Notification");
 
 // @desc    Mua vé số
 // @route   POST /api/lottery/buy-ticket
@@ -41,6 +42,19 @@ exports.buyTicket = async (req, res) => {
       transactionHash,
       amount,
     });
+
+    // Gửi thông báo mua vé thành công
+    try {
+      await Notification.createTicketPurchaseNotification(
+        req.user._id,
+        ticketNumber,
+        amount,
+        ticket._id
+      );
+    } catch (notifError) {
+      // Log lỗi nhưng không ảnh hưởng đến việc mua vé
+      console.error("Create notification error:", notifError);
+    }
 
     res.status(201).json({
       success: true,
